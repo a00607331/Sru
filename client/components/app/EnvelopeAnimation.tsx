@@ -74,7 +74,7 @@ function Envelope({ open }: { open: boolean }) {
           strokeWidth="2"
           style={{ transformOrigin: "140px 40px" }}
           initial={false}
-          animate={{ rotateX: open ? 160 : 0 }}
+          animate={{ rotate: open ? -180 : 0 }}
           transition={{ duration: 0.9, ease: "easeInOut" }}
         />
         {/* top shadow */}
