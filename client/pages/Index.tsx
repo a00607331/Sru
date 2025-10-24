@@ -27,10 +27,8 @@ export default function Index() {
           <EnvelopeAnimation onOpened={() => setStep("letter")} />
         )}
 
-        {step === "letter" && (
-          <>
-            <LetterDisplay onDone={() => setStep("reply")} />
-          </>
+        {(step === "letter" || step === "reply") && (
+          <LetterDisplay onDone={() => step === "letter" && setStep("reply")} />
         )}
 
         {step === "reply" && (
