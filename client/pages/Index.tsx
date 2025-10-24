@@ -7,7 +7,9 @@ import LetterDisplay from "@/components/app/LetterDisplay";
 import ReplyBox from "@/components/app/ReplyBox";
 
 export default function Index() {
-  const [step, setStep] = useState<"landing" | "prompt" | "envelope" | "letter" | "reply">("landing");
+  const [step, setStep] = useState<
+    "landing" | "prompt" | "envelope" | "letter" | "reply"
+  >("landing");
   const [note, setNote] = useState<string>("");
 
   return (
@@ -16,12 +18,15 @@ export default function Index() {
 
       <main className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center justify-center gap-8 py-14">
         {step === "landing" && (
-          <LandingStep onNext={(v) => { setNote(v); setStep("prompt"); }} />
+          <LandingStep
+            onNext={(v) => {
+              setNote(v);
+              setStep("prompt");
+            }}
+          />
         )}
 
-        {step === "prompt" && (
-          <YesNoPrompt onYes={() => setStep("envelope")} />
-        )}
+        {step === "prompt" && <YesNoPrompt onYes={() => setStep("envelope")} />}
 
         {step === "envelope" && (
           <EnvelopeAnimation onOpened={() => setStep("letter")} />
@@ -31,9 +36,7 @@ export default function Index() {
           <LetterDisplay onDone={() => step === "letter" && setStep("reply")} />
         )}
 
-        {step === "reply" && (
-          <ReplyBox initial={note} />
-        )}
+        {step === "reply" && <ReplyBox initial={note} />}
       </main>
 
       <footer className="pointer-events-none absolute inset-x-0 bottom-2 z-10 flex justify-center text-[10px] text-rose-900/50">

@@ -41,7 +41,10 @@ export default function FloatingBackground() {
   }, [count]);
 
   return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+    <div
+      aria-hidden
+      className="pointer-events-none absolute inset-0 overflow-hidden"
+    >
       {/* soft gradient backdrop */}
       <div className="absolute inset-0 bg-[radial-gradient(90%_60%_at_10%_10%,hsl(var(--petal-200))_0%,transparent_60%),radial-gradient(80%_50%_at_90%_20%,hsl(var(--peach-200))_0%,transparent_60%),radial-gradient(60%_50%_at_50%_100%,hsl(var(--lav-200))_0%,transparent_60%)]" />
       {particles.map((p) => (

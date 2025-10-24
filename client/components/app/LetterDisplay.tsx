@@ -19,7 +19,15 @@ export default function LetterDisplay({ onDone }: { onDone: () => void }) {
   );
 }
 
-function Typewriter({ text, speed = 24, onDone }: { text: string; speed?: number; onDone?: () => void }) {
+function Typewriter({
+  text,
+  speed = 24,
+  onDone,
+}: {
+  text: string;
+  speed?: number;
+  onDone?: () => void;
+}) {
   const [display, setDisplay] = useState("");
   useEffect(() => {
     let i = 0;

@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function LandingStep({ onNext }: { onNext: (name: string) => void }) {
+export default function LandingStep({
+  onNext,
+}: {
+  onNext: (name: string) => void;
+}) {
   const [value, setValue] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
@@ -17,8 +21,12 @@ export default function LandingStep({ onNext }: { onNext: (name: string) => void
         className="mx-auto w-full max-w-md rounded-2xl bg-white/70 p-6 shadow-soft backdrop-blur-md ring-1 ring-white/40"
       >
         <div className="text-center">
-          <h2 className="text-2xl font-semibold text-rose-900/90">Hey… how are you doing?</h2>
-          <p className="mt-2 text-rose-900/60 text-sm">Write anything you like. You can keep it short.</p>
+          <h2 className="text-2xl font-semibold text-rose-900/90">
+            Hey… how are you doing?
+          </h2>
+          <p className="mt-2 text-rose-900/60 text-sm">
+            Write anything you like. You can keep it short.
+          </p>
         </div>
         <div className="mt-6">
           <input

@@ -113,22 +113,45 @@
 }
 
 @layer base {
-  * { @apply border-border; }
-  body { @apply bg-background text-foreground; font-feature-settings: "liga" 1, "calt" 1; }
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings:
+      "liga" 1,
+      "calt" 1;
+  }
 
   :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
     overflow-wrap: anywhere;
     word-break: break-word;
   }
 
-  pre, code { overflow-x: auto; white-space: pre; }
+  pre,
+  code {
+    overflow-x: auto;
+    white-space: pre;
+  }
 }
 
 @layer utilities {
-  .shadow-soft { box-shadow: 0 10px 30px hsla(340, 20%, 20%, 0.12); }
-  .shadow-input { box-shadow: 0 4px 16px hsla(340, 40%, 50%, 0.12); }
-  .btn-primary { @apply rounded-xl bg-primary px-5 py-2.5 text-white shadow-md transition-all duration-300 hover:brightness-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary/40 active:scale-[.98]; }
-  .btn-secondary { @apply rounded-xl bg-secondary px-5 py-2.5 text-rose-900 shadow-md transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-rose-300 active:scale-[.98]; }
-  .animate-float { animation: float var(--float-duration,12s) ease-in-out infinite; }
-  .animate-caret { animation: caret 1s step-end infinite; }
+  .shadow-soft {
+    box-shadow: 0 10px 30px hsla(340, 20%, 20%, 0.12);
+  }
+  .shadow-input {
+    box-shadow: 0 4px 16px hsla(340, 40%, 50%, 0.12);
+  }
+  .btn-primary {
+    @apply rounded-xl bg-primary px-5 py-2.5 text-white shadow-md transition-all duration-300 hover:brightness-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary/40 active:scale-[.98];
+  }
+  .btn-secondary {
+    @apply rounded-xl bg-secondary px-5 py-2.5 text-rose-900 shadow-md transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-rose-300 active:scale-[.98];
+  }
+  .animate-float {
+    animation: float var(--float-duration, 12s) ease-in-out infinite;
+  }
+  .animate-caret {
+    animation: caret 1s step-end infinite;
+  }
 }

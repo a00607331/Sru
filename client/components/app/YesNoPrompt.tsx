@@ -38,7 +38,9 @@ export default function YesNoPrompt({ onYes }: { onYes: () => void }) {
         transition={{ duration: 0.5 }}
         className="mx-auto w-full max-w-md rounded-2xl bg-white/70 p-6 shadow-soft backdrop-blur-md ring-1 ring-white/40 text-center"
       >
-        <h3 className="text-xl font-semibold text-rose-900/90">Want to read the message?</h3>
+        <h3 className="text-xl font-semibold text-rose-900/90">
+          Want to read the message?
+        </h3>
         <div className="mt-6 flex items-center justify-center gap-4">
           {swapped ? (
             <>
