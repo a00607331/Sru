@@ -38,20 +38,20 @@ export default {
         },
         // custom soft palette tokens
         peach: {
-          50: "var(--peach-50)",
-          100: "var(--peach-100)",
-          200: "var(--peach-200)",
-          300: "var(--peach-300)",
+          50: "hsl(var(--peach-50))",
+          100: "hsl(var(--peach-100))",
+          200: "hsl(var(--peach-200))",
+          300: "hsl(var(--peach-300))",
         },
         petal: {
-          50: "var(--petal-50)",
-          100: "var(--petal-100)",
-          200: "var(--petal-200)",
+          50: "hsl(var(--petal-50))",
+          100: "hsl(var(--petal-100))",
+          200: "hsl(var(--petal-200))",
         },
         lav: {
-          50: "var(--lav-50)",
-          100: "var(--lav-100)",
-          200: "var(--lav-200)",
+          50: "hsl(var(--lav-50))",
+          100: "hsl(var(--lav-100))",
+          200: "hsl(var(--lav-200))",
         },
         rose: {
           400: "var(--rose-400)",
