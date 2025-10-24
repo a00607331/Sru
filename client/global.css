@@ -43,19 +43,19 @@
 
     --radius: 1rem;
 
-    /* custom soft tokens used by components (kept as HSL without hsl()) */
-    --peach-50: hsl(24 100% 97%);
-    --peach-100: hsl(24 92% 94%);
-    --peach-200: hsl(24 90% 86%);
-    --peach-300: hsl(24 84% 78%);
+    /* custom soft tokens used by components (HSL numbers for hsl(var(--x))) */
+    --peach-50: 24 100% 97%;
+    --peach-100: 24 92% 94%;
+    --peach-200: 24 90% 86%;
+    --peach-300: 24 84% 78%;
 
-    --petal-50: hsl(336 100% 98%);
-    --petal-100: hsl(336 95% 94%);
-    --petal-200: hsl(336 85% 88%);
+    --petal-50: 336 100% 98%;
+    --petal-100: 336 95% 94%;
+    --petal-200: 336 85% 88%;
 
-    --lav-50: hsl(268 100% 98%);
-    --lav-100: hsl(268 82% 94%);
-    --lav-200: hsl(268 70% 88%);
+    --lav-50: 268 100% 98%;
+    --lav-100: 268 82% 94%;
+    --lav-200: 268 70% 88%;
 
     --rose-400: 343 76% 66%;
     --rose-500: 343 83% 58%;
