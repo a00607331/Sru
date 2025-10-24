@@ -13,80 +13,94 @@
   */
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 340 30% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 340 30% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 340 30% 12%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* warm pastel palette */
+    --primary: 345 80% 57%; /* rose */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 23 90% 92%; /* peach tint */
+    --secondary-foreground: 345 40% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 330 40% 96%;
+    --muted-foreground: 340 18% 40%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 270 40% 96%;
+    --accent-foreground: 270 35% 25%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 63%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 20 40% 90%;
+    --input: 20 40% 90%;
+    --ring: 345 80% 57%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
+
+    /* custom soft tokens used by components (kept as HSL without hsl()) */
+    --peach-50: hsl(24 100% 97%);
+    --peach-100: hsl(24 92% 94%);
+    --peach-200: hsl(24 90% 86%);
+    --peach-300: hsl(24 84% 78%);
+
+    --petal-50: hsl(336 100% 98%);
+    --petal-100: hsl(336 95% 94%);
+    --petal-200: hsl(336 85% 88%);
+
+    --lav-50: hsl(268 100% 98%);
+    --lav-100: hsl(268 82% 94%);
+    --lav-200: hsl(268 70% 88%);
+
+    --rose-400: 343 76% 66%;
+    --rose-500: 343 83% 58%;
+
+    --gold-400: 45 94% 58%;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 330 25% 8%;
+    --foreground: 0 0% 100%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 330 25% 10%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 330 25% 10%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 345 80% 64%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 23 28% 20%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 330 22% 16%;
+    --muted-foreground: 330 18% 70%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 268 30% 18%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 330 22% 18%;
+    --input: 330 22% 18%;
+    --ring: 345 80% 64%;
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -99,22 +113,22 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-  }
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground; font-feature-settings: "liga" 1, "calt" 1; }
 
   :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
     overflow-wrap: anywhere;
     word-break: break-word;
   }
 
-  pre,
-  code {
-    overflow-x: auto;
-    white-space: pre;
-  }
+  pre, code { overflow-x: auto; white-space: pre; }
+}
+
+@layer utilities {
+  .shadow-soft { box-shadow: 0 10px 30px hsla(340, 20%, 20%, 0.12); }
+  .shadow-input { box-shadow: 0 4px 16px hsla(340, 40%, 50%, 0.12); }
+  .btn-primary { @apply rounded-xl bg-primary px-5 py-2.5 text-white shadow-md transition-all duration-300 hover:brightness-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary/40 active:scale-[.98]; }
+  .btn-secondary { @apply rounded-xl bg-secondary px-5 py-2.5 text-rose-900 shadow-md transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-rose-300 active:scale-[.98]; }
+  .animate-float { animation: float var(--float-duration,12s) ease-in-out infinite; }
+  .animate-caret { animation: caret 1s step-end infinite; }
 }
