@@ -1,30 +1,115 @@
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 
-// You can keep the message here if it's static
-const MESSAGE = `Hey… I just wanted to share this little note with you. Hope it makes you smile 💖`;
+const MESSAGE = `
+(Click twice for full text on screen)
+
+Hey, hello, hii Sruu 🌙
+
+I hope you’ve been doing well — truly, from the heart.
+
+It’s been three… maybe four months since we last spoke, but honestly, 
+it feels like a long, quiet winter that forgot how to end.
+
+I ruin things sometimes 🥲, and maybe this silence was one of them.
+
+But I’m not here to drag the past back — I just want you to listen, peacefully.
+
+Were these months happy?
+
+Yes, they were — but not because you weren’t there.
+
+jab jab maine kuch paaya, tab tab tera khayal mujhe aaya.
+
+Even the smallest wins felt half-hearted without the 
+instinct to tell you first as I always did.
+
+If I skip our silly fights and look only at the good, those convos, the laughter, 
+the random late-night talks, 
+the comfort of knowing someone understood even when words didn’t.
+That someone was you fr fr 😓.
+
+Aur ek baat… asahi tasahi konic VAIT nahi zalay kona somorch shemdee.
+
+Haa, tu buri hai 😡 par bas mere liye 😒 — kyunki tu chup rehne mein bhi baat keh deti hai.
+
+Kabhi kabhi lagta hai silence heals, par kabhi wo bas aur zyada dooriya bana deta hai.
+
+You once said na “mujhe nahi lgta ki hoga terese move on.” Ha sahi kaha tha…
+
+Aur hoga bhi kaise… did we even dated? 🙂‍↔️🤧
+
+But we *did* care — and maybe that’s what mattered.
+
+and and one more thing…
+
+Unblock kar Insta pe, 
+Snap pe add kar le, 
+aur contact list mein naam wapas likh le 
+😶‍🌫️ number tk delete kr diya tune mera!
+
+Not because I’m trying to get attention —
+
+bas itna ki agar kabhi kuch bolna ho, toh ek raasta khula rahe.
+
+I don’t want to vanish from your world completely and not make you vanish from mine.
+
+Whatever we were — can we just be that again?
+I still love you the same, 
+but ab terko paane ki chah nhi hai bhas tere sath ki chah hai🙂‍↔️
+
+Not rewinding, not forcing — just rebuilding (😭 engineer brain)
+
+Take care of yourself, Sruu.
+
+And I genuinely hope life keeps giving you reasons to smile, 
+the way you once gave reasons for mine.
+
+agar terese side se respond hai toh 
+niche reply box and whatsapp/insta pr kuch dalde(🙂begginer hu i doubt my development)
+if not keep it blank mujhe tera respond samj jayega.
+`;
 
 export default function LetterDisplay({ onDone }: { onDone: () => void }) {
   return (
-    <div className="relative flex min-h-[50vh] w-full items-center justify-center px-4">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative z-10 mx-auto w-full max-w-2xl rounded-3xl bg-gradient-to-tr from-pink-50/80 via-white/70
-             p-8 shadow-2xl ring-1 ring-white/30 backdrop-blur-lg border border-white/20"
-      >
-        <div className="prose max-w-none text-rose-700/90 text-[17px] leading-relaxed cursor-pointer select-none">
-          <Typewriter text={MESSAGE} onDone={onDone} />
-        </div>
-      </motion.div>
+    <div
+  // MODIFICATION: Added a fine gradient background
+  className="relative flex min-h-screen w-full items-center justify-center bg-gradient-to-br from-white to-rose-50 overflow-hidden"
+>
+  {/* MODIFICATION: Added background emojis */}
+  {/* These are z-0, so they sit behind the z-10 card */}
+  <span className="absolute top-[20%] left-[15%] z-0 text-5xl opacity-40 -rotate-12 select-none pointer-events-none">
+    💖
+  </span>
+  <span className="absolute top-[30%] right-[20%] z-0 text-4xl opacity-50 rotate-12 select-none pointer-events-none">
+    ✨
+  </span>
+  <span className="absolute bottom-[25%] left-[30%] z-0 text-3xl opacity-30 rotate-6 select-none pointer-events-none">
+    ✨
+  </span>
+  <span className="absolute bottom-[20%] right-[25%] z-0 text-5xl opacity-30 -rotate-6 select-none pointer-events-none">
+    💖
+  </span>
+
+  {/* letter box only */}
+  <motion.div
+    initial={{ opacity: 0, scale: 1, y: 40 }}
+    animate={{ opacity: 1, scale: 1, y: 0 }}
+    transition={{ duration: 1 }}
+    // MODIFICATION: Made the box wider (was max-w-3xl)
+    className="relative z-10 mx-auto w-full max-w-5xl rounded-3xl bg-white shadow-[0_8px_50px_rgba(0,0,0,0.08)] border border-rose-100 p-10"
+  >
+    <div className="font-[500] text-[17px] leading-relaxed text-rose-900 whitespace-pre-wrap">
+      <Typewriter text={MESSAGE} onDone={onDone} />
     </div>
+  </motion.div>
+</div>
   );
 }
 
 function Typewriter({
   text,
-  speed = 50,
+  speed = 40,
   onDone,
 }: {
   text: string;
@@ -35,40 +120,39 @@ function Typewriter({
   const indexRef = useRef(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Typewriter effect
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       setDisplay((prev) => prev + text[indexRef.current]);
       indexRef.current += 1;
-
       if (indexRef.current >= text.length && intervalRef.current) {
         clearInterval(intervalRef.current);
         setTimeout(() => onDone?.(), 500);
       }
     }, speed);
 
-    return () => intervalRef.current && clearInterval(intervalRef.current);
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
   }, [text, speed, onDone]);
 
-  // Skip typing on click
   const handleClick = () => {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
       setDisplay(text);
-      setTimeout(() => onDone?.(), 200);
+      setTimeout(() => onDone?.(), 300);
     }
   };
 
   return (
     <pre
-      className="whitespace-pre-wrap text-[16px] leading-relaxed text-rose-900/95 cursor-pointer"
+      className="cursor-pointer select-none font-[500] text-left tracking-normal"
       onClick={handleClick}
     >
       {display}
       <motion.span
-        className="inline-block h-5 w-[2px] bg-rose-500/80 ml-0.5"
+        className="inline-block h-5 w-[2px] bg-rose-700 ml-1"
         animate={{ opacity: [0, 1, 0] }}
-        transition={{ repeat: Infinity, duration: 0.8 }}
+        transition={{ duration: 0.7, repeat: Infinity }}
       />
     </pre>
   );
