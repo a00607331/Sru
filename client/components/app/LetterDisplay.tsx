@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 
 const MESSAGE = `
-(Click twice for full text on screen)
+(Click for full text on screen)
 
 Hey, hello, hii Sruu 🌙
 
@@ -65,9 +65,9 @@ Take care of yourself, Sruu.
 And I genuinely hope life keeps giving you reasons to smile, 
 the way you once gave reasons for mine.
 
-agar terese side se respond hai toh 
-niche reply box and whatsapp/insta pr kuch dalde(🙂begginer hu i doubt my development)
-if not keep it blank mujhe tera respond samj jayega.
+agar terese side se kuch respond hai toh 
+niche reply box(yes/ha..etc) dal de(database issues) and then whatsapp/insta pr kuch dalde(🙂begginer hu i doubt my development)
+if not respond No......
 `;
 
 export default function LetterDisplay({ onDone }: { onDone: () => void }) {
