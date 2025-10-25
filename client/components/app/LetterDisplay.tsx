@@ -136,11 +136,18 @@ function Typewriter({
   }, [text, speed, onDone]);
 
   const handleClick = () => {
+    // Clear any ongoing typing interval
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
-      setDisplay(text);
-      setTimeout(() => onDone?.(), 300);
+      intervalRef.current = null;
     }
+    
+    // Set the full text immediately and prevent further typing
+    setDisplay(text);
+    indexRef.current = text.length; // Mark as completed
+    
+    // Call onDone after a short delay
+    setTimeout(() => onDone?.(), 300);
   };
 
   return (
