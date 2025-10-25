@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 export default function LetterDisplay({ onDone }: { onDone: () => void }) {
-  const message = `Hey you,\n\nI just wanted to remind you that you're one of the brightest parts of my day.\nYour smile, your kindness, and the way you see the world—it all means so much.\n\nNo rush to reply. Just know I'm here, cheering for you, always. 💖`;
+  const message = ``;
   return (
     <div className="relative flex min-h-[50vh] w-full items-center justify-center px-4">
       <motion.div
