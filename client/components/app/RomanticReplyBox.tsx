@@ -206,15 +206,19 @@ export default function RomanticReplyBox({ initial }: { initial?: string }) {
             </motion.button>
           </div>
         </div>
-        
+
         <motion.button
           whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.98 }}
+          whileTap={{ scale: 0.95 }}
           onClick={handleSubmit}
           disabled={loading || !value.trim()}
-          className="w-full sm:w-auto px-5 py-2 mt-3 sm:mt-0 rounded-lg bg-rose-500 text-white hover:bg-rose-600 transition-colors font-medium disabled:opacity-50"
+          className={`
+    px-5 py-2 rounded-lg font-medium transition-all duration-300 ease-in-out
+    bg-rose-600 text-white hover:bg-rose-700 
+    ${loading || !value.trim() ? "opacity-70 cursor-not-allowed" : "shadow-md"}
+  `}
         >
-          {loading ? "Sending..." : "Send Reply"}
+          {loading ? "Sending..." : "Send Reply 💌"}
         </motion.button>
       </div>
 
