@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 
 const MESSAGE = `
 (Click for full text on screen)
+"agar tu ye mobile pr dekh rahi hai toh don't forget to turn on desktop-view"
 
 Hey, hello, hii Sruu 🌙
 
@@ -19,7 +20,7 @@ Were these months happy?
 
 Yes, they were — but not because you weren’t there.
 
-jab jab maine kuch paaya, tab tab tera khayal mujhe aaya.
+jab jab maine kuch achieve kiya kuch paaya , tab tab tera khayal mujhe aaya.
 
 Even the smallest wins felt half-hearted without the 
 instinct to tell you first as I always did.
@@ -65,9 +66,13 @@ Take care of yourself, Sruu.
 And I genuinely hope life keeps giving you reasons to smile, 
 the way you once gave reasons for mine.
 
-agar terese side se kuch respond hai toh 
-niche reply box(yes/ha..etc) dal de(database issues) and then whatsapp/insta pr kuch dalde(🙂begginer hu i doubt my development)
-if not respond No......
+Agar tere side se kuch respond hai toh
+niche reply box mein “yes” / “ha” likh de (database issues 😭),
+fir “WhatsApp/Instagram” pe bhej dena aage ka — beginner hu,
+I still doubt my development
+
+If not, bas “No” likh dena…
+at least mujhe pata rahega ki tune padha pura🥹🥹
 `;
 
 export default function LetterDisplay({ onDone }: { onDone: () => void }) {

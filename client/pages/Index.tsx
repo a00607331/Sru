@@ -4,7 +4,7 @@ import LandingStep from "@/components/app/LandingStep";
 import YesNoPrompt from "@/components/app/YesNoPrompt";
 import EnvelopeAnimation from "@/components/app/EnvelopeAnimation";
 import LetterDisplay from "@/components/app/LetterDisplay";
-import ReplyBox from "@/components/app/ReplyBox";
+import RomanticReplyBox from "@/components/app/RomanticReplyBox";
 
 export default function Index() {
   const [step, setStep] = useState<
@@ -16,7 +16,7 @@ export default function Index() {
     <div className="relative min-h-[100dvh] overflow-hidden bg-gradient-to-br from-[hsl(var(--peach-50))] via-[hsl(var(--petal-50))] to-[hsl(var(--lav-50))]">
       <FloatingBackground />
 
-      <main className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center justify-center gap-8 py-14">
+      <main className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center justify-center gap-4 sm:gap-8 px-4 sm:px-6 py-8 sm:py-14">
         {step === "landing" && (
           <LandingStep
             onNext={(v) => {
@@ -36,7 +36,7 @@ export default function Index() {
           <LetterDisplay onDone={() => step === "letter" && setStep("reply")} />
         )}
 
-        {step === "reply" && <ReplyBox initial={note} />}
+        {step === "reply" && <RomanticReplyBox initial={note} />}
       </main>
 
       <footer className="pointer-events-none absolute inset-x-0 bottom-2 z-10 flex justify-center text-[10px] text-rose-900/50">
